@@ -6,6 +6,7 @@
 
 Besides taking away the pain of correctly loading the APIs, it's also providing strongly typed APIs using `@types/electron` as a dependency.
 
+Checkout the introduction post on my [blog](https://medium.com/@ThorstenHans/integrating-angular-and-electron-using-ngx-electron-9c36affca25e#.4scol1nli) for more details.
 
 ## Installation
 
@@ -21,7 +22,7 @@ $ npm install ngx-electron --save
 
 ```
 import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform/dynamic/browser';
+import {BrowserModule} from '@angular/platform-browser';
 import {NgxElectronModule} from 'ngx-electron';
 import {AppComponent} from './app.component';
  
