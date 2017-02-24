@@ -1,8 +1,10 @@
 import {ElectronWindow} from '../typings';
 import {ElectronService} from './electronService';
+import {Injectable} from '@angular/core';
 
 declare const window: ElectronWindow;
 
+@Injectable()
 export class ElectronServiceRef extends ElectronService {
 
     private _electron: Electron.ElectronMainAndRenderer;
