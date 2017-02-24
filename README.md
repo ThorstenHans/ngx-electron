@@ -1,5 +1,7 @@
 # ngx-electron
 
+[![Build Status](https://travis-ci.org/ThorstenHans/ngx-electron.svg?branch=master)](https://travis-ci.org/ThorstenHans/ngx-electron)
+
 `ngx-electron` provides an angular wrapper for Electron's APIs exposed as part of the renderer process. 
 
 Besides taking away the pain of correctly loading the APIs, it's also providing strongly typed APIs using `@types/electron` as a dependency.

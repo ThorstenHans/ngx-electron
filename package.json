@@ -1,7 +1,7 @@
 {
   "name": "ngx-electron",
   "description": "Access Electron Renderer APIs easily using an Angular Service",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": "bundles/core.umd.js",
   "repository": {
     "type": "git",
