@@ -1,24 +1,55 @@
-export abstract class ElectronService {
+import {ElectronWindow} from '../typings';
+
+declare const window: ElectronWindow;
+
+export class ElectronService {
 
     public static get runningInElectron(): boolean {
         return !!window.navigator.userAgent.match(/Electron/);
     }
 
-    public abstract get desktopCapturer(): Electron.DesktopCapturer;
+    private _electron: Electron.ElectronMainAndRenderer;
 
-    public abstract get ipcRenderer(): Electron.IpcRenderer;
+    private get electron(): Electron.ElectronMainAndRenderer {
+        if (!this._electron) {
+            this._electron = window.require ? window.require('electron') : null;
+        }
+        return this._electron;
+    }
 
-    public abstract get remote(): Electron.Remote;
+    public get desktopCapturer(): Electron.DesktopCapturer {
+        return this.electron ? this.electron.desktopCapturer : null;
+    }
 
-    public abstract get webFrame(): Electron.WebFrame;
+    public get ipcRenderer(): Electron.IpcRenderer {
+        return this.electron ? this.electron.ipcRenderer : null;
+    }
 
-    public abstract get clipboard(): Electron.Clipboard;
+    public get remote(): Electron.Remote {
+        return this.electron ? this.electron.remote : null;
+    }
 
-    public abstract get crashReporter(): Electron.CrashReporter;
+    public get webFrame(): Electron.WebFrame {
+        return this.electron ? this.electron.webFrame : null;
+    }
 
-    public abstract get process(): NodeJS.Process;
+    public get clipboard(): Electron.Clipboard {
+        return this.electron ? this.electron.clipboard : null;
+    }
 
-    public abstract get screen(): Electron.Screen;
+    public get crashReporter(): Electron.CrashReporter {
+        return this.electron ? this.electron.crashReporter : null;
+    }
 
-    public abstract get shell(): Electron.Shell;
+    public get process(): NodeJS.Process {
+        return this.remote ? this.remote.process : null;
+    }
+
+    public get screen(): Electron.Screen {
+        return this.electron ? this.electron.screen : null;
+    }
+
+    public get shell(): Electron.Shell {
+        return this.electron ? this.electron.shell : null;
+    }
 }
