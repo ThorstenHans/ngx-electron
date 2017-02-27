@@ -1,4 +1,4 @@
-import {ElectronWindow} from '../typings';
+import {ElectronWindow} from '../typings/index';
 
 declare const window: ElectronWindow;
 
