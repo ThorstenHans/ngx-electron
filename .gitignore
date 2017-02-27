@@ -9,7 +9,7 @@ npm-debug.log
 *.map
 *.d.ts
 !make.js
-!typings.d.ts
+!typings/*.d.ts
 !examples/**/*.js
 coverage
 *.metadata.json
