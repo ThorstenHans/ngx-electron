@@ -75,6 +75,7 @@ The `ElectronService` is exposing all API's accessible from within Electron's re
   * `process: NodeJS.Process` - Electron's Process Object
   * `screen: Electron.Screen` - Electron's Screen API
   * `shell: Electron.Shell` - Electron's Shell API
+  * `nativeImage: Electron.NativeImage` - Electron's NativeImage API
 
 ### Static Properties
   * `runningInElectron: boolean` - Indicates if app is being executed inside of electron or not
