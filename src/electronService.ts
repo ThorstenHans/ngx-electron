@@ -45,7 +45,7 @@ export class ElectronService {
         return this.remote ? this.remote.process : null;
     }
 
-    public get nativeImage(): Electron.NativeImage {
+    public get nativeImage(): typeof Electron.NativeImage {
         return this.electron? this.electron.nativeImage : null;
     }
 

@@ -44,7 +44,6 @@
     "@types/jasmine": "2.5.41",
     "@types/node": "7.0.5",
     "@types/sinon": "^1.16.35",
-    "sinon": "^1.17.7",
     "awesome-typescript-loader": "3.0.4-rc.2",
     "clean-webpack-plugin": "0.1.15",
     "codelyzer": "2.0.0",
@@ -76,6 +75,5 @@
   },
   "dependencies": {
     "@types/electron": "^1.4.33"
-
   }
 }

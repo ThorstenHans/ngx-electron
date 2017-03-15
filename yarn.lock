@@ -79,9 +79,9 @@
     conventional-changelog "0.0.17"
     github-url-from-git "^1.4.0"
 
-"@types/electron@^1.4.32":
-  version "1.4.32"
-  resolved "https://registry.yarnpkg.com/@types/electron/-/electron-1.4.32.tgz#3c9fce4aa53b26213bc1f1b640206191d449fa76"
+"@types/electron@^1.4.33":
+  version "1.4.33"
+  resolved "https://registry.yarnpkg.com/@types/electron/-/electron-1.4.33.tgz#10b82bb065115e19a5ef0848e142cf5949435979"
   dependencies:
     "@types/node" "*"
 
