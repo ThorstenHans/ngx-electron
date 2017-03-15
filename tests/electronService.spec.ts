@@ -105,6 +105,10 @@ describe('ElectronService', () => {
             expect(_electronService.hasOwnProperty('screen'));
         });
 
+        it('should expose nativeImage', () => {
+           expect(_electronService.hasOwnProperty('nativeImage'));
+        });
+
     });
 
     describe('if not in Electron', () => {
@@ -135,6 +139,10 @@ describe('ElectronService', () => {
 
         it('should return null for shell', () => {
             expect(_electronService.shell).toBeNull();
+        });
+
+        it('should return null for nativeImage', () => {
+            expect(_electronService.nativeImage).toBeNull();
         });
 
         it('should return null for remote', () => {

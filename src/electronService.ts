@@ -45,6 +45,10 @@ export class ElectronService {
         return this.remote ? this.remote.process : null;
     }
 
+    public get nativeImage(): typeof Electron.NativeImage {
+        return this.electron? this.electron.nativeImage : null;
+    }
+
     public get screen(): Electron.Screen {
         return this.electron ? this.electron.screen : null;
     }
