@@ -20,7 +20,7 @@ $ npm install ngx-electron --save
 
 `ngx-electron` is exposing a module called `NgxElectronModule` which needs to be imported in your `AppModule`.
 
-```
+``` typescript
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgxElectronModule} from 'ngx-electron';
@@ -41,7 +41,7 @@ export class AppModule {
 
 Once the module has been imported, you can easily use angular DI to ask for `ElectronService`.
 
-```
+``` typescript
 import {Component} from '@angular/core';
 import {ElectronService} from 'ngx-electron';
  
