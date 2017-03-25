@@ -5,6 +5,10 @@ declare const window: ElectronWindow;
 export class ElectronService {
 
     public static get runningInElectron(): boolean {
+        return ElectronService.isElectronApp;
+    }
+
+    public static get isElectronApp(): boolean {
         return !!window.navigator.userAgent.match(/Electron/);
     }
 
@@ -15,6 +19,10 @@ export class ElectronService {
             this._electron = window.require ? window.require('electron') : null;
         }
         return this._electron;
+    }
+
+    public get isElectronApp(): boolean {
+        return ElectronService.isElectronApp;
     }
 
     public get desktopCapturer(): Electron.DesktopCapturer {
@@ -46,7 +54,7 @@ export class ElectronService {
     }
 
     public get nativeImage(): typeof Electron.NativeImage {
-        return this.electron? this.electron.nativeImage : null;
+        return this.electron ? this.electron.nativeImage : null;
     }
 
     public get screen(): Electron.Screen {

@@ -34,18 +34,18 @@ describe('ElectronService', () => {
         expect(_electronService).not.hasOwnProperty('electron');
     });
 
-    describe('runningInElectron', () => {
+    describe('static isElectronApp', () => {
 
-        it('should provide runningInElectron as static property', () => {
-            expect(ElectronService).hasOwnProperty('runningInElectron');
+        it('should provide isElectronApp as static property', () => {
+            expect(ElectronService).hasOwnProperty('isElectronApp');
         });
 
         it('should return a boolean', () => {
-            expect(typeof ElectronService.runningInElectron).toEqual('boolean');
+            expect(typeof ElectronService.isElectronApp).toEqual('boolean');
         });
 
         it('should return false if not running in electron', () => {
-            expect(ElectronService.runningInElectron).toBeFalsy();
+            expect(ElectronService.isElectronApp).toBeFalsy();
         });
 
         it('should return true if running in electron', () => {
@@ -55,7 +55,36 @@ describe('ElectronService', () => {
                 return 'foo Electron';
             });
 
-            expect(ElectronService.runningInElectron).toBeTruthy();
+            expect(ElectronService.isElectronApp).toBeTruthy();
+
+            (<any>navigator).__defineGetter__('userAgent', (): string => {
+                return original;
+            });
+        });
+    });
+
+    describe('isElectronApp', () => {
+
+        it('should provide isElectronApp as an instance-property', () => {
+            expect(_electronService).hasOwnProperty('isElectronApp');
+        });
+
+        it('should return a boolean', () => {
+            expect(typeof _electronService.isElectronApp).toEqual('boolean');
+        });
+
+        it('should return false if not running in electron', () => {
+            expect(_electronService.isElectronApp).toBeFalsy();
+        });
+
+        it('should return true if running in electron', () => {
+            let original = navigator.userAgent;
+
+            (<any>navigator).__defineGetter__('userAgent', (): string => {
+                return 'foo Electron';
+            });
+
+            expect(_electronService.isElectronApp).toBeTruthy();
 
             (<any>navigator).__defineGetter__('userAgent', (): string => {
                 return original;

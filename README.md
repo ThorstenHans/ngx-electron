@@ -54,8 +54,10 @@ export class AppComponent {
     constructor(private _electronService: ElectronService) { }
     
     public playPingPong() {
-        let pong: string = this._electronService.ipcRenderer.sendSync('ping');
-        console.log(pong);
+        if(this._electronService.isElectronApp) {
+            let pong: string = this._electronService.ipcRenderer.sendSync('ping');
+            console.log(pong);
+        }
     }
 }
 ```
@@ -75,6 +77,10 @@ The `ElectronService` is exposing all API's accessible from within Electron's re
   * `process: NodeJS.Process` - Electron's Process Object
   * `screen: Electron.Screen` - Electron's Screen API
   * `shell: Electron.Shell` - Electron's Shell API
+  * `nativeImage: Electron.NativeImage`: - Electrons NativeImage API
+  * `isElectronApp: boolean` - Indicates if app is being executed inside of electron or not
+  
 
 ### Static Properties
-  * `runningInElectron: boolean` - Indicates if app is being executed inside of electron or not
+  * `runningInElectron: boolean` - **deprecated** see `isElectronApp` instead
+  * `isElectronApp: boolean` - Indicates if app is being executed inside of electron or not
