@@ -8,6 +8,9 @@ Besides taking away the pain of correctly loading the APIs, it's also providing 
 
 Checkout the introduction post on my [blog](https://medium.com/@ThorstenHans/integrating-angular-and-electron-using-ngx-electron-9c36affca25e#.4scol1nli) for more details.
 
+## Breaking changes
+
+With version `1.0.1` static properties like `isElectronApp` and `runningInElectron` have been removed. Use instance property `isElectronApp` instead.
 ## Installation
 
 `ngx-electron` can be installed easily using either `yarn` or `npm` commands in the scope of an angular project.
@@ -54,9 +57,11 @@ export class AppComponent {
     constructor(private _electronService: ElectronService) { }
     
     public playPingPong() {
+        if(this._electronService.isElectronApp) {
         let pong: string = this._electronService.ipcRenderer.sendSync('ping');
         console.log(pong);
     }
+}
 }
 ```
 
@@ -76,6 +81,11 @@ The `ElectronService` is exposing all API's accessible from within Electron's re
   * `screen: Electron.Screen` - Electron's Screen API
   * `shell: Electron.Shell` - Electron's Shell API
   * `nativeImage: Electron.NativeImage` - Electron's NativeImage API
+  * `isElectronApp: boolean` - Indicates if app is being executed inside of electron or not
+  
 
 ### Static Properties
-  * `runningInElectron: boolean` - Indicates if app is being executed inside of electron or not
+
+**Have been removed in release** `1.0.1`
+  * ~~runningInElectron: boolean~~ - **removed** see `isElectronApp` instance property instead
+  * ~~isElectronApp: boolean~~ - **removed** see `isElectronApp` instance property

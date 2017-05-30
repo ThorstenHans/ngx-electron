@@ -38,6 +38,9 @@ module.exports = {
             enforce: 'pre',
             test: /\.ts$/,
             loader: 'tslint-loader',
+            options: {
+                typeCheck: true
+            },
             exclude: [helpers.root('node_modules')]
         }, {
             test: /\.ts$/,

@@ -4,10 +4,6 @@ declare const window: ElectronWindow;
 
 export class ElectronService {
 
-    public static get runningInElectron(): boolean {
-        return !!window.navigator.userAgent.match(/Electron/);
-    }
-
     private _electron: Electron.ElectronMainAndRenderer;
 
     private get electron(): Electron.ElectronMainAndRenderer {
@@ -15,6 +11,14 @@ export class ElectronService {
             this._electron = window.require ? window.require('electron') : null;
         }
         return this._electron;
+    }
+
+    /**
+     * determines if SPA is running in Electron
+     * @returns {boolean}
+     */
+    public get isElectronApp(): boolean {
+        return !!window.navigator.userAgent.match(/Electron/);
     }
 
     public get desktopCapturer(): Electron.DesktopCapturer {
@@ -46,7 +50,7 @@ export class ElectronService {
     }
 
     public get nativeImage(): typeof Electron.NativeImage {
-        return this.electron? this.electron.nativeImage : null;
+        return this.electron ? this.electron.nativeImage : null;
     }
 
     public get screen(): Electron.Screen {
