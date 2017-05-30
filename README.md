@@ -11,6 +11,7 @@ Checkout the introduction post on my [blog](https://medium.com/@ThorstenHans/int
 ## Breaking changes
 
 With version `1.0.1` static properties like `isElectronApp` and `runningInElectron` have been removed. Use instance property `isElectronApp` instead.
+
 ## Installation
 
 `ngx-electron` can be installed easily using either `yarn` or `npm` commands in the scope of an angular project.
