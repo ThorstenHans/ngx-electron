@@ -5,7 +5,7 @@ declare const window: ElectronWindow;
 export class ElectronService {
 
     /**
-     * backward compability
+     * backward compatibility
      * @returns {boolean}
      */
     public static get runningInElectron(): boolean {
