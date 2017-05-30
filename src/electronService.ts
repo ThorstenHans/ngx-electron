@@ -4,10 +4,18 @@ declare const window: ElectronWindow;
 
 export class ElectronService {
 
+    /**
+     * backward compability
+     * @returns {boolean}
+     */
     public static get runningInElectron(): boolean {
         return ElectronService.isElectronApp;
     }
 
+    /**
+     * determines if SPA is running in Electron
+     * @returns {boolean}
+     */
     public static get isElectronApp(): boolean {
         return !!window.navigator.userAgent.match(/Electron/);
     }
@@ -21,6 +29,10 @@ export class ElectronService {
         return this._electron;
     }
 
+    /**
+     * determines if SPA is running in Electron
+     * @returns {boolean}
+     */
     public get isElectronApp(): boolean {
         return ElectronService.isElectronApp;
     }
