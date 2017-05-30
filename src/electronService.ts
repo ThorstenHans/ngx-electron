@@ -4,22 +4,6 @@ declare const window: ElectronWindow;
 
 export class ElectronService {
 
-    /**
-     * backward compatibility
-     * @returns {boolean}
-     */
-    public static get runningInElectron(): boolean {
-        return ElectronService.isElectronApp;
-    }
-
-    /**
-     * determines if SPA is running in Electron
-     * @returns {boolean}
-     */
-    public static get isElectronApp(): boolean {
-        return !!window.navigator.userAgent.match(/Electron/);
-    }
-
     private _electron: Electron.ElectronMainAndRenderer;
 
     private get electron(): Electron.ElectronMainAndRenderer {
@@ -34,7 +18,7 @@ export class ElectronService {
      * @returns {boolean}
      */
     public get isElectronApp(): boolean {
-        return ElectronService.isElectronApp;
+        return !!window.navigator.userAgent.match(/Electron/);
     }
 
     public get desktopCapturer(): Electron.DesktopCapturer {

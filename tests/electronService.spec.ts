@@ -34,35 +34,6 @@ describe('ElectronService', () => {
         expect(_electronService).not.hasOwnProperty('electron');
     });
 
-    describe('static isElectronApp', () => {
-
-        it('should provide isElectronApp as static property', () => {
-            expect(ElectronService).hasOwnProperty('isElectronApp');
-        });
-
-        it('should return a boolean', () => {
-            expect(typeof ElectronService.isElectronApp).toEqual('boolean');
-        });
-
-        it('should return false if not running in electron', () => {
-            expect(ElectronService.isElectronApp).toBeFalsy();
-        });
-
-        it('should return true if running in electron', () => {
-            let original = navigator.userAgent;
-
-            (<any>navigator).__defineGetter__('userAgent', (): string => {
-                return 'foo Electron';
-            });
-
-            expect(ElectronService.isElectronApp).toBeTruthy();
-
-            (<any>navigator).__defineGetter__('userAgent', (): string => {
-                return original;
-            });
-        });
-    });
-
     describe('isElectronApp', () => {
 
         it('should provide isElectronApp as an instance-property', () => {
