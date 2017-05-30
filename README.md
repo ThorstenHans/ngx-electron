@@ -58,10 +58,10 @@ export class AppComponent {
     
     public playPingPong() {
         if(this._electronService.isElectronApp) {
-        let pong: string = this._electronService.ipcRenderer.sendSync('ping');
-        console.log(pong);
+            let pong: string = this._electronService.ipcRenderer.sendSync('ping');
+            console.log(pong);
+        }
     }
-}
 }
 ```
 
