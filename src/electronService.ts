@@ -1,14 +1,18 @@
+import * as Electron from 'electron';
 import {ElectronWindow} from '../typings/index';
 
-declare const window: ElectronWindow;
+declare let window: ElectronWindow;
 
 export class ElectronService {
+    private _electron: Electron.RendererInterface;
 
-    private _electron: Electron.ElectronMainAndRenderer;
-
-    private get electron(): Electron.ElectronMainAndRenderer {
+    private get electron(): Electron.RendererInterface {
         if (!this._electron) {
-            this._electron = window.require ? window.require('electron') : null;
+            if (window && window.require) {
+                this._electron = window.require('electron');
+                return this._electron;
+            }
+            return null;
         }
         return this._electron;
     }
@@ -49,7 +53,7 @@ export class ElectronService {
         return this.remote ? this.remote.process : null;
     }
 
-    public get nativeImage(): typeof Electron.NativeImage {
+    public get nativeImage(): typeof Electron.nativeImage {
         return this.electron ? this.electron.nativeImage : null;
     }
 
