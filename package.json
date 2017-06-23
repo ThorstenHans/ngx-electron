@@ -1,11 +1,11 @@
 {
   "name": "ngx-electron",
-  "description": "Access Electron Renderer APIs easily using an Angular Service",
-  "version": "1.0.2",
+  "description": "access Electron Renderer APIs easily using an Angular Service",
+  "version": "0.0.0-development",
   "main": "bundles/core.umd.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ThorstenHans/ngx-electron"
+    "url": "https://github.com/ThorstenHans/ngx-electron"
   },
   "author": "Thorsten Hans <thorsten.hans@gmail.com>",
   "license": "MIT",
@@ -21,6 +21,10 @@
   "keywords": [
     "angular",
     "angular 2",
+    "angular 4",
+    "ng",
+    "ngx",
+    "ng4",
     "electron",
     "github-electron"
   ],
@@ -30,7 +34,7 @@
   "module": "index.js",
   "typings": "index.d.ts",
   "peerDependencies": {
-    "@angular/core": ">=2.0.0 || >=4.1.3"
+    "@angular/core": ">=2.0.0 || >=4.2.4"
   },
   "devDependencies": {
     "@angular/animations": "4.1.3",
@@ -75,6 +79,6 @@
     "zone.js": "0.8.4"
   },
   "dependencies": {
-    "@types/electron": "^1.4.38"
+    "electron": "^1.6.11"
   }
 }
