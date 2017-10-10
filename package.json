@@ -74,11 +74,9 @@
     "ts-helpers": "^1.1.2",
     "tslint": "^5.3.2",
     "tslint-loader": "^3.5.3",
-    "typescript": "^2.3.3",
+    "typescript": "~2.3.3",
     "webpack": "^2.6.1",
-    "zone.js": "0.8.4"
-  },
-  "dependencies": {
+    "zone.js": "0.8.4",
     "electron": "^1.6.11"
   }
 }
