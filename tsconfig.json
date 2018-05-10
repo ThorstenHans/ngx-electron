@@ -11,7 +11,6 @@
     "declaration": true,
     "moduleResolution": "node",
     "typeRoots": [
-      "node_modules/electron/electron.d.ts",
       "typings"
     ],
     "lib": [
