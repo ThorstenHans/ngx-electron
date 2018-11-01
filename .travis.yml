@@ -1,21 +1,22 @@
 language: node_js
-cache:
-  directories:
-    - node_modules
+sudo: required
 notifications:
   email: false
 node_js:
-  - '7'
-  - '6'
-  - '4'
+  - '10'
 before_install:
- -  export CHROME_BIN=chromium-browser
-before_script:
-  - npm prune
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
+  - export CHROME_BIN=chromium-browser
+  - if [[ `npm -v` != 6* ]]; then npm i -g npm@6; fi
 after_success:
+  - npm run build
+  - cp .git dist/ngx-electron/ -r
+  - cp README.md dist/ngx-electron/
+  - cd dist/ngx-electron/
+  - npm install
   - npm run semantic-release
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
+before_script:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start

@@ -3,34 +3,34 @@
 [![Build Status](https://travis-ci.org/ThorstenHans/ngx-electron.svg?branch=master)](https://travis-ci.org/ThorstenHans/ngx-electron)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square)](https://github.com/semantic-release/semantic-release)
 
-`ngx-electron` provides an angular wrapper for Electron's APIs exposed as part of the renderer process. 
+`ngx-electron` is a small Module for [Angular](http://angular.io) which makes calling [Electron]() APIs from the [Renderer Process]() easier. By adding it to your Angular projet, you'll get intelli sense and a simple Angular service which acts as facade for Electron API's. 
 
-Besides taking away the pain of correctly loading the APIs, it's also providing strongly typed APIs using `@types/electron` as a dependency.
+`ngx-electron` is licensed under [MIT](https://opensource.org/licenses/MIT).
+
+## Introduction 
 
 Checkout the introduction post on my [blog](https://medium.com/@ThorstenHans/integrating-angular-and-electron-using-ngx-electron-9c36affca25e#.4scol1nli) for more details.
-
-## Breaking changes
-
-With version `1.0.1` static properties like `isElectronApp` and `runningInElectron` have been removed. Use instance property `isElectronApp` instead.
 
 ## Installation
 
 `ngx-electron` can be installed easily using either `yarn` or `npm` commands in the scope of an angular project.
 
-```
-$ yarn add ngx-electron --save
+```bash
+yarn add ngx-electron --save
 # or
-$ npm install ngx-electron --save
+npm install ngx-electron --save
 ```
 
-`ngx-electron` is exposing a module called `NgxElectronModule` which needs to be imported in your `AppModule`.
+The `NgxElectronModule` needs to be import in your `root` Angular module (eg `AppModule`).
 
 ``` typescript
-import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
-import {NgxElectronModule} from 'ngx-electron';
-import {AppComponent} from './app.component';
- 
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppComponent } from './app.component';
+
+import { NgxElectronModule } from 'ngx-electron';
+
+
 @NgModule({
     declarations: [],
     imports: [
@@ -44,11 +44,11 @@ export class AppModule {
 }
 ```
 
-Once the module has been imported, you can easily use angular DI to ask for `ElectronService`.
+Once the module has been imported, you can easily use dependency injection to get an instance of `ElectronService`.
 
 ``` typescript
-import {Component} from '@angular/core';
-import {ElectronService} from 'ngx-electron';
+import { Component } from '@angular/core';
+import { ElectronService } from 'ngx-electron';
  
 @Component({
   selector: 'my-app',
@@ -84,10 +84,3 @@ The `ElectronService` is exposing all API's accessible from within Electron's re
   * `shell: Electron.Shell` - Electron's Shell API
   * `nativeImage: Electron.NativeImage` - Electron's NativeImage API
   * `isElectronApp: boolean` - Indicates if app is being executed inside of electron or not
-  
-
-### Static Properties
-
-**Have been removed in release** `1.0.1`
-  * ~~runningInElectron: boolean~~ - **removed** see `isElectronApp` instance property instead
-  * ~~isElectronApp: boolean~~ - **removed** see `isElectronApp` instance property

@@ -1,5 +1,5 @@
 import * as Electron from 'electron';
-import {ElectronWindow} from '../typings/index';
+import { ElectronWindow } from './typings/electron.window';
 
 declare let window: ElectronWindow;
 
@@ -19,7 +19,6 @@ export class ElectronService {
 
     /**
      * determines if SPA is running in Electron
-     * @returns {boolean}
      */
     public get isElectronApp(): boolean {
         return !!window.navigator.userAgent.match(/Electron/);
