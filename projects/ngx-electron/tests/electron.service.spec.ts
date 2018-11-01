@@ -1,8 +1,9 @@
 import {Injector} from '@angular/core';
-import {ElectronService, NgxElectronModule} from '../index';
 import {getTestBed, TestBed} from '@angular/core/testing';
-import {ElectronServiceRef} from '../src/electronServiceRef';
 import {} from 'jasmine';
+import { ElectronService } from '../src/lib/electron.service';
+import { NgxElectronModule } from '../src/public_api';
+import { ElectronServiceRef } from '../src/lib/electron.service.ref';
 
 describe('ElectronService', () => {
     let _injector: Injector;

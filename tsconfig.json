@@ -1,34 +1,25 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "noImplicitAny": true,
-    "noUnusedParameters": true,
-    "noUnusedLocals": true,
-    "module": "es2015",
-    "target": "es5",
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "declaration": true,
-    "moduleResolution": "node",
+    "target": "es5",
     "typeRoots": [
-      "node_modules/electron/electron.d.ts",
-      "typings"
+      "node_modules/@types"
     ],
     "lib": [
-      "es2015",
+      "es2017",
       "dom"
-    ]
-  },
-  "files": [
-    "index.ts",
-    "./src/electronService.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "bundles"
-  ],
-  "angularCompilerOptions": {
-    "strictMetadataEmit": true,
-    "skipTemplateCodegen": true
+    ],
+    "paths": {
+      "ngx-electron": [
+        "dist/ngx-electron"
+      ]
+    }
   }
 }
