@@ -48,7 +48,7 @@ export class ElectronService {
         return this.electron ? this.electron.crashReporter : null;
     }
 
-    public get process(): NodeJS.Process {
+    public get process(): any {
         return this.remote ? this.remote.process : null;
     }
 
