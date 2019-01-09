@@ -1,6 +1,6 @@
-import {Injector} from '@angular/core';
-import {getTestBed, TestBed} from '@angular/core/testing';
-import {} from 'jasmine';
+import { Injector } from '@angular/core';
+import { getTestBed, TestBed } from '@angular/core/testing';
+import { } from 'jasmine';
 import { ElectronService } from '../src/lib/electron.service';
 import { NgxElectronModule } from '../src/public_api';
 import { ElectronServiceRef } from '../src/lib/electron.service.ref';
@@ -65,6 +65,234 @@ describe('ElectronService', () => {
         });
     });
 
+    describe('isWindows', () => {
+
+        it('should provide isElectronApp as an instance-property', () => {
+            expect(_electronService).hasOwnProperty('isWindows');
+        });
+
+        it('should return a boolean', () => {
+            expect(typeof _electronService.isWindows).toEqual('boolean');
+        });
+
+
+        it('should return false if isElectronApp is false', () => {
+            expect(_electronService.isWindows).toBeFalsy();
+        });
+
+        it('should return true if running in electron', () => {
+            let originalPlatform = process.platform;
+            let originalUserAgent = navigator.userAgent;
+            (<any>navigator).__defineGetter__('userAgent', (): string => {
+                return 'foo Electron';
+            });
+            (<any>process).__defineGetter__('platform', (): string => {
+                return 'win32';
+            });
+
+            expect(_electronService.isWindows).toBeTruthy();
+
+            (<any>process).__defineGetter__('platform', (): string => {
+                return originalPlatform;
+            });
+
+            (<any>navigator).__defineGetter__('userAgent', (): string => {
+                return originalUserAgent;
+            });
+        });
+    });
+
+    describe('isLinux', () => {
+
+        it('should provide isLinux as an instance-property', () => {
+            expect(_electronService).hasOwnProperty('isLinux');
+        });
+
+        it('should return a boolean', () => {
+            expect(typeof _electronService.isLinux).toEqual('boolean');
+        });
+
+
+        it('should return false if isElectronApp is false', () => {
+            expect(_electronService.isLinux).toBeFalsy();
+        });
+
+        it('should return true if running in electron', () => {
+            let originalPlatform = process.platform;
+            let originalUserAgent = navigator.userAgent;
+            (<any>navigator).__defineGetter__('userAgent', (): string => {
+                return 'foo Electron';
+            });
+            (<any>process).__defineGetter__('platform', (): string => {
+                return 'linux';
+            });
+
+            expect(_electronService.isLinux).toBeTruthy();
+
+            (<any>process).__defineGetter__('platform', (): string => {
+                return originalPlatform;
+            });
+
+            (<any>navigator).__defineGetter__('userAgent', (): string => {
+                return originalUserAgent;
+            });
+        });
+    });
+
+    describe('isMacOS', () => {
+
+        it('should provide isMacOS as an instance-property', () => {
+            expect(_electronService).hasOwnProperty('isMacOS');
+        });
+
+        it('should return a boolean', () => {
+            expect(typeof _electronService.isMacOS).toEqual('boolean');
+        });
+
+
+        it('should return false if isElectronApp is false', () => {
+            expect(_electronService.isMacOS).toBeFalsy();
+        });
+
+        it('should return true if running in electron', () => {
+            let originalPlatform = process.platform;
+            let originalUserAgent = navigator.userAgent;
+            (<any>navigator).__defineGetter__('userAgent', (): string => {
+                return 'foo Electron';
+            });
+            (<any>process).__defineGetter__('platform', (): string => {
+                return 'darwin';
+            });
+
+            expect(_electronService.isMacOS).toBeTruthy();
+
+            (<any>process).__defineGetter__('platform', (): string => {
+                return originalPlatform;
+            });
+
+            (<any>navigator).__defineGetter__('userAgent', (): string => {
+                return originalUserAgent;
+            });
+        });
+    });
+
+    describe('isX86', () => {
+
+        it('should provide isX86 as an instance-property', () => {
+            expect(_electronService).hasOwnProperty('isX86');
+        });
+
+        it('should return a boolean', () => {
+            expect(typeof _electronService.isX86).toEqual('boolean');
+        });
+
+
+        it('should return false if isElectronApp is false', () => {
+            expect(_electronService.isX86).toBeFalsy();
+        });
+
+        it('should return true if running in electron with 32bit arch', () => {
+            let originalArch = process.arch;
+            let originalUserAgent = navigator.userAgent;
+            (<any>navigator).__defineGetter__('userAgent', (): string => {
+                return 'foo Electron';
+            });
+            (<any>process).__defineGetter__('arch', (): string => {
+                return 'ia32';
+            });
+
+            expect(_electronService.isX86).toBeTruthy();
+
+            (<any>process).__defineGetter__('arch', (): string => {
+                return originalArch;
+            });
+
+            (<any>navigator).__defineGetter__('userAgent', (): string => {
+                return originalUserAgent;
+            });
+        });
+
+        it('should return false if running in electron with x64 arch', () => {
+            let originalArch = process.arch;
+            let originalUserAgent = navigator.userAgent;
+            (<any>navigator).__defineGetter__('userAgent', (): string => {
+                return 'foo Electron';
+            });
+            (<any>process).__defineGetter__('arch', (): string => {
+                return 'x64';
+            });
+
+            expect(_electronService.isX86).toBeFalsy();
+
+            (<any>process).__defineGetter__('arch', (): string => {
+                return originalArch;
+            });
+
+            (<any>navigator).__defineGetter__('userAgent', (): string => {
+                return originalUserAgent;
+            });
+        });
+    });
+
+    describe('isX64', () => {
+
+        it('should provide isX64 as an instance-property', () => {
+            expect(_electronService).hasOwnProperty('isX64');
+        });
+
+        it('should return a boolean', () => {
+            expect(typeof _electronService.isX64).toEqual('boolean');
+        });
+
+
+        it('should return false if isElectronApp is false', () => {
+            expect(_electronService.isX64).toBeFalsy();
+        });
+
+        it('should return true if running in electron with x64 arch', () => {
+            let originalArch = process.arch;
+            let originalUserAgent = navigator.userAgent;
+            (<any>navigator).__defineGetter__('userAgent', (): string => {
+                return 'foo Electron';
+            });
+            (<any>process).__defineGetter__('arch', (): string => {
+                return 'x64';
+            });
+
+            expect(_electronService.isX64).toBeTruthy();
+
+            (<any>process).__defineGetter__('arch', (): string => {
+                return originalArch;
+            });
+
+            (<any>navigator).__defineGetter__('userAgent', (): string => {
+                return originalUserAgent;
+            });
+        });
+
+        it('should return false if running in electron with 32bit arch', () => {
+            let originalArch = process.arch;
+            let originalUserAgent = navigator.userAgent;
+            (<any>navigator).__defineGetter__('userAgent', (): string => {
+                return 'foo Electron';
+            });
+            (<any>process).__defineGetter__('arch', (): string => {
+                return 'ia32';
+            });
+
+            expect(_electronService.isX64).toBeFalsy();
+
+            (<any>process).__defineGetter__('arch', (): string => {
+                return originalArch;
+            });
+
+            (<any>navigator).__defineGetter__('userAgent', (): string => {
+                return originalUserAgent;
+            });
+        });
+
+    });
+
     describe('api', () => {
 
         it('should expose desktopCapturer', () => {
@@ -108,7 +336,7 @@ describe('ElectronService', () => {
         });
 
         it('should expose nativeImage', () => {
-           expect(_electronService.hasOwnProperty('nativeImage'));
+            expect(_electronService.hasOwnProperty('nativeImage'));
         });
 
     });
