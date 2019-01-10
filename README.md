@@ -11,6 +11,10 @@
 
 Checkout the introduction post on my [blog](https://medium.com/@ThorstenHans/integrating-angular-and-electron-using-ngx-electron-9c36affca25e#.4scol1nli) for more details.
 
+## Support me
+
+[![Become a Patron!](https://c5.patreon.com/external/logo/become_a_patron_button.png)](https://www.patreon.com/bePatron?u=16380186)
+
 ## Installation
 
 `ngx-electron` can be installed easily using either `yarn` or `npm` commands in the scope of an angular project.
@@ -84,3 +88,8 @@ The `ElectronService` is exposing all API's accessible from within Electron's re
   * `shell: Electron.Shell` - Electron's Shell API
   * `nativeImage: Electron.NativeImage` - Electron's NativeImage API
   * `isElectronApp: boolean` - Indicates if app is being executed inside of electron or not
+  * `isMacOS: boolean` - Indicates if app is running in electron and on `macOS`
+  * `isWindows: boolean` - Indicates if app is running in electron and on `Windows`
+  * `isLinux: boolean` - Indicates if app is running in electron and on `Linux`
+  * `isX86: boolean` - Indicates if app is running in electron and on a `x86` architecture
+  * `isX64: boolean` - Indicates if app is running in electron and on a `x64` architecture
