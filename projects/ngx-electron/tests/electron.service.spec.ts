@@ -293,6 +293,44 @@ describe('ElectronService', () => {
 
     });
 
+    describe('isArm', () => {
+
+        it('should provide isArm as an instance-property', () => {
+            expect(_electronService).hasOwnProperty('isArm');
+        });
+
+        it('should return a boolean', () => {
+            expect(typeof _electronService.isArm).toEqual('boolean');
+        });
+
+
+        it('should return false if isElectronApp is false', () => {
+            expect(_electronService.isArm).toBeFalsy();
+        });
+
+        it('should return true if running in electron with arm arch', () => {
+            let originalArch = process.arch;
+            let originalUserAgent = navigator.userAgent;
+            (<any>navigator).__defineGetter__('userAgent', (): string => {
+                return 'foo Electron';
+            });
+            (<any>process).__defineGetter__('arch', (): string => {
+                return 'arm';
+            });
+
+            expect(_electronService.isArm).toBeTruthy();
+
+            (<any>process).__defineGetter__('arch', (): string => {
+                return originalArch;
+            });
+
+            (<any>navigator).__defineGetter__('userAgent', (): string => {
+                return originalUserAgent;
+            });
+        });
+
+    });
+
     describe('api', () => {
 
         it('should expose desktopCapturer', () => {
