@@ -19,7 +19,7 @@
     "url": "https://github.com/ThorstenHans/ngx-electron/issues"
   },
   "peerDependencies": {
-    "@angular/core": ">=7.0.0",
+    "@angular/core": ">=8.0.0",
     "rxjs": ">=6.3.0",
     "electron": ">=3.0.6"
   },
