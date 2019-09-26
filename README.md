@@ -9,7 +9,7 @@
 
 ## Introduction 
 
-Checkout the introduction post on my [blog](https://medium.com/@ThorstenHans/integrating-angular-and-electron-using-ngx-electron-9c36affca25e#.4scol1nli) for more details.
+Checkout the introduction post on my [blog](https://thorsten-hans.com/integrating-angular-and-electron-using-ngx-electron) for more details.
 
 ## Support me
 
