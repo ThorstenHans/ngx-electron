@@ -3,11 +3,11 @@
 [![Build Status](https://travis-ci.org/ThorstenHans/ngx-electron.svg?branch=master)](https://travis-ci.org/ThorstenHans/ngx-electron)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square)](https://github.com/semantic-release/semantic-release)
 
-`ngx-electron` is a small Module for [Angular](http://angular.io) which makes calling [Electron]() APIs from the [Renderer Process]() easier. By adding it to your Angular project, you'll get intelli sense and a simple Angular service which acts as facade for Electron API's. 
+`ngx-electron` is a small Module for [Angular](http://angular.io) which makes calling [Electron](https://electronjs.org) APIs from the `Renderer Process` easier. By adding it to your Angular project, you'll get IntelliSense and a simple Angular service which acts as facade for Electron APIs.
 
 `ngx-electron` is licensed under [MIT](https://opensource.org/licenses/MIT).
 
-## Introduction 
+## Introduction
 
 Checkout the introduction post on my [blog](https://thorsten-hans.com/integrating-angular-and-electron-using-ngx-electron) for more details.
 
@@ -44,7 +44,7 @@ import { NgxElectronModule } from 'ngx-electron';
     bootstrap: [AppComponent]
 })
 export class AppModule {
- 
+
 }
 ```
 
@@ -53,15 +53,15 @@ Once the module has been imported, you can easily use dependency injection to ge
 ``` typescript
 import { Component } from '@angular/core';
 import { ElectronService } from 'ngx-electron';
- 
+
 @Component({
   selector: 'my-app',
   templateUrl: 'app.html'
 })
 export class AppComponent {
- 
+
     constructor(private _electronService: ElectronService) { }
-    
+
     public playPingPong() {
         if(this._electronService.isElectronApp) {
             let pong: string = this._electronService.ipcRenderer.sendSync('ping');
