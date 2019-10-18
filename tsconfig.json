@@ -19,6 +19,9 @@
     "paths": {
       "ngx-electron": [
         "dist/ngx-electron"
+      ],
+      "core-js/es7/reflect": [
+        "node_modules/core-js/proposals/reflect-metadata"
       ]
     }
   }

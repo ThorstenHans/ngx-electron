@@ -44,6 +44,10 @@ export class ElectronService {
         return this.isElectronApp && process.arch === 'x64';
     }
 
+    public get isArm(): boolean {
+        return this.isElectronApp && process.arch === 'arm';
+    }
+
     public get desktopCapturer(): Electron.DesktopCapturer {
         return this.electron ? this.electron.desktopCapturer : null;
     }
