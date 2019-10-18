@@ -81,7 +81,7 @@ export class ElectronService {
     }
 
     public get screen(): Electron.Screen {
-        return this.electron ? this.electron.screen : null;
+        return this.electron ? this.remote.screen : null;
     }
 
     public get shell(): Electron.Shell {
