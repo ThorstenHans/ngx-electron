@@ -18,12 +18,10 @@
   },
   "keywords": [
     "angular",
-    "angular 2",
-    "angular 4",
     "ng",
     "ngx",
-    "ng4",
     "electron",
+    "atom-shell",
     "github-electron"
   ],
   "config": {
