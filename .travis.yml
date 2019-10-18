@@ -10,8 +10,7 @@ notifications:
 node_js:
   - "10"
 before_install:
-  - export CHROME_BIN=chromium-browser
-  - if [[ `npm -v` != 6* ]]; then npm i -g npm@6; fi
+  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
 after_success:
   - npm run build
   - cp .git dist/ngx-electron/ -r
@@ -22,5 +21,3 @@ after_success:
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
-env:
-  - DISPLAY=:99.0
