@@ -20,7 +20,7 @@
   "peerDependencies": {
     "@angular/core": ">=8.0.0",
     "rxjs": ">=6.3.0",
-    "electron": ">=3.0.6"
+    "electron": ">=6.0.10"
   },
   "devDependencies": {
     "semantic-release": "8.2.3"
