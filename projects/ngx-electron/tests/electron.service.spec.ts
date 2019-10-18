@@ -1,6 +1,6 @@
 import { Injector } from '@angular/core';
 import { getTestBed, TestBed } from '@angular/core/testing';
-import { } from 'jasmine';
+import {} from 'jasmine';
 import { ElectronService } from '../src/lib/electron.service';
 import { NgxElectronModule } from '../src/public_api';
 import { ElectronServiceRef } from '../src/lib/electron.service.ref';
@@ -11,9 +11,7 @@ describe('ElectronService', () => {
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [
-                NgxElectronModule
-            ]
+            imports: [NgxElectronModule]
         });
         _injector = getTestBed();
         _electronService = _injector.get(ElectronService);
@@ -22,7 +20,6 @@ describe('ElectronService', () => {
     afterEach(() => {
         _injector = undefined;
         _electronService = undefined;
-
     });
 
     it('is defined', () => {
@@ -37,7 +34,6 @@ describe('ElectronService', () => {
     });
 
     describe('isElectronApp', () => {
-
         it('should provide isElectronApp as an instance-property', () => {
             expect(_electronService).hasOwnProperty('isElectronApp');
         });
@@ -66,7 +62,6 @@ describe('ElectronService', () => {
     });
 
     describe('isWindows', () => {
-
         it('should provide isElectronApp as an instance-property', () => {
             expect(_electronService).hasOwnProperty('isWindows');
         });
@@ -74,7 +69,6 @@ describe('ElectronService', () => {
         it('should return a boolean', () => {
             expect(typeof _electronService.isWindows).toEqual('boolean');
         });
-
 
         it('should return false if isElectronApp is false', () => {
             expect(_electronService.isWindows).toBeFalsy();
@@ -103,7 +97,6 @@ describe('ElectronService', () => {
     });
 
     describe('isLinux', () => {
-
         it('should provide isLinux as an instance-property', () => {
             expect(_electronService).hasOwnProperty('isLinux');
         });
@@ -111,7 +104,6 @@ describe('ElectronService', () => {
         it('should return a boolean', () => {
             expect(typeof _electronService.isLinux).toEqual('boolean');
         });
-
 
         it('should return false if isElectronApp is false', () => {
             expect(_electronService.isLinux).toBeFalsy();
@@ -140,7 +132,6 @@ describe('ElectronService', () => {
     });
 
     describe('isMacOS', () => {
-
         it('should provide isMacOS as an instance-property', () => {
             expect(_electronService).hasOwnProperty('isMacOS');
         });
@@ -148,7 +139,6 @@ describe('ElectronService', () => {
         it('should return a boolean', () => {
             expect(typeof _electronService.isMacOS).toEqual('boolean');
         });
-
 
         it('should return false if isElectronApp is false', () => {
             expect(_electronService.isMacOS).toBeFalsy();
@@ -177,7 +167,6 @@ describe('ElectronService', () => {
     });
 
     describe('isX86', () => {
-
         it('should provide isX86 as an instance-property', () => {
             expect(_electronService).hasOwnProperty('isX86');
         });
@@ -185,7 +174,6 @@ describe('ElectronService', () => {
         it('should return a boolean', () => {
             expect(typeof _electronService.isX86).toEqual('boolean');
         });
-
 
         it('should return false if isElectronApp is false', () => {
             expect(_electronService.isX86).toBeFalsy();
@@ -235,7 +223,6 @@ describe('ElectronService', () => {
     });
 
     describe('isX64', () => {
-
         it('should provide isX64 as an instance-property', () => {
             expect(_electronService).hasOwnProperty('isX64');
         });
@@ -243,7 +230,6 @@ describe('ElectronService', () => {
         it('should return a boolean', () => {
             expect(typeof _electronService.isX64).toEqual('boolean');
         });
-
 
         it('should return false if isElectronApp is false', () => {
             expect(_electronService.isX64).toBeFalsy();
@@ -290,11 +276,44 @@ describe('ElectronService', () => {
                 return originalUserAgent;
             });
         });
+    });
 
+    describe('isArm', () => {
+        it('should provide isArm as an instance-property', () => {
+            expect(_electronService).hasOwnProperty('isArm');
+        });
+
+        it('should return a boolean', () => {
+            expect(typeof _electronService.isArm).toEqual('boolean');
+        });
+
+        it('should return false if isElectronApp is false', () => {
+            expect(_electronService.isArm).toBeFalsy();
+        });
+
+        it('should return true if running in electron with arm arch', () => {
+            let originalArch = process.arch;
+            let originalUserAgent = navigator.userAgent;
+            (<any>navigator).__defineGetter__('userAgent', (): string => {
+                return 'foo Electron';
+            });
+            (<any>process).__defineGetter__('arch', (): string => {
+                return 'arm';
+            });
+
+            expect(_electronService.isArm).toBeTruthy();
+
+            (<any>process).__defineGetter__('arch', (): string => {
+                return originalArch;
+            });
+
+            (<any>navigator).__defineGetter__('userAgent', (): string => {
+                return originalUserAgent;
+            });
+        });
     });
 
     describe('api', () => {
-
         it('should expose desktopCapturer', () => {
             expect(_electronService.hasOwnProperty('desktopCapturer'));
         });
@@ -338,11 +357,9 @@ describe('ElectronService', () => {
         it('should expose nativeImage', () => {
             expect(_electronService.hasOwnProperty('nativeImage'));
         });
-
     });
 
     describe('if not in Electron', () => {
-
         it('should return null for desktopCapturer', () => {
             expect(_electronService.desktopCapturer).toBeNull();
         });
@@ -392,7 +409,6 @@ describe('ElectronService', () => {
         const original = navigator.userAgent;
 
         beforeEach(() => {
-
             (<any>window).require = () => {
                 return {
                     desktopCapturer: {},
@@ -408,7 +424,6 @@ describe('ElectronService', () => {
             (<any>navigator).__defineGetter__('userAgent', (): string => {
                 return 'foo Electron';
             });
-
         });
         afterEach(() => {
             (<any>navigator).__defineGetter__('userAgent', (): string => {
