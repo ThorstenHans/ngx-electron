@@ -93,3 +93,4 @@ The `ElectronService` is exposing all API's accessible from within Electron's re
   * `isLinux: boolean` - Indicates if app is running in electron and on `Linux`
   * `isX86: boolean` - Indicates if app is running in electron and on a `x86` architecture
   * `isX64: boolean` - Indicates if app is running in electron and on a `x64` architecture
+  * `isArm: boolean` - Indiciates it app is running in electron adn on a `ARM` architecture
